@@ -37,6 +37,7 @@ def part_one():
             if action in v:
                 v.remove(action)
 
+
 def part_two():
     inp = Path(r"day7_input.txt")
     prereqs = defaultdict(list)
@@ -52,10 +53,10 @@ def part_two():
                 prereqs[prereq] = list()
     h = []
     heapq.heapify(h)
-    t = 0 
+    t = 0
     actions = ""
     workers = 5
-    while len(prereqs) > 0 or len(h)>0:
+    while len(prereqs) > 0 or len(h) > 0:
         # finish available step
         if len(h) > 0:
             t1, action = heapq.heappop(h)
@@ -80,9 +81,9 @@ def part_two():
             heapq.heappush(h, (t + duration(action), action))
         heaps = ""
         for n in range(workers):
-            if len(h) > n: 
+            if len(h) > n:
                 heaps += f"{h[n][0]:4}/{h[n][1]}"
-            else: 
+            else:
                 heaps += "     ."
         print(f"{t:4} {heaps} {actions}")
 
