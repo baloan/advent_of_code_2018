@@ -21,6 +21,7 @@ def part_one():
         freq += d
     print(freq)
 
+
 def part_two():
     inp = Path(r"day1_input.txt")
     changes = list()
